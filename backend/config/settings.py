@@ -68,7 +68,6 @@ DATABASES = {
     }
 }
 
-# Render ke liye DATABASE_URL override
 DATABASE_URL = config('DATABASE_URL', default=None)
 if DATABASE_URL:
     DATABASES['default'] = dj_database_url.config(
