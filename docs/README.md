@@ -1,6 +1,6 @@
 # BreatheESG — ESG Data Ingestion Platform
 
-A full-stack prototype for ingesting, normalizing, and reviewing 
+A full-stack prototype for ingesting, normalizing, and reviewing
 enterprise emissions data from multiple sources.
 
 Built with Django REST Framework + React.
@@ -9,10 +9,10 @@ Built with Django REST Framework + React.
 
 ## Overview
 
-Enterprise ESG data lives in different systems, in different shapes, 
-with different gaps. This platform ingests emissions and activity data 
-from three source types, normalizes it to a common unit, and surfaces 
-a review dashboard where analysts can approve records before they are 
+Enterprise ESG data lives in different systems, in different shapes,
+with different gaps. This platform ingests emissions and activity data
+from three source types, normalizes it to a common unit, and surfaces
+a review dashboard where analysts can approve records before they are
 locked for audit.
 
 ---
@@ -40,21 +40,26 @@ locked for audit.
 ---
 
 ## Architecture
+
+```
 File Upload (CSV/JSON)
-            ↓
+        ↓
 RawRecord — stored as-is, source of truth
-            ↓
+        ↓
 Normalization — units converted, CO2 calculated
-            ↓
+        ↓
 NormalizedRecord — Scope 1/2/3, kgCO2e
-            ↓
+        ↓
 Analyst Review — approve or reject
-            ↓
+        ↓
 AuditLog — every action tracked, locked for auditors
+```
 
 ---
 
 ## Project Structure
+
+```
 breathe-esg/
 ├── backend/
 │   ├── config/          # Django settings, urls
@@ -67,10 +72,11 @@ breathe-esg/
 │       ├── components/  # RecordsTable, UploadForm
 │       └── pages/       # Dashboard
 └── docs/
-├── MODEL.md
-├── DECISIONS.md
-├── TRADEOFFS.md
-└── SOURCES.md
+    ├── MODEL.md
+    ├── DECISIONS.md
+    ├── TRADEOFFS.md
+    └── SOURCES.md
+```
 
 ---
 
@@ -98,6 +104,7 @@ python manage.py runserver
 
 Create a `.env` file inside the `backend` folder:
 
+```
 SECRET_KEY=your-secret-key
 DEBUG=True
 DB_NAME=breatheesg
@@ -105,6 +112,7 @@ DB_USER=postgres
 DB_PASSWORD=your-password
 DB_HOST=localhost
 DB_PORT=5432
+```
 
 ---
 
@@ -176,9 +184,12 @@ Every action is logged in the AuditLog with timestamp.
 ---
 
 ## Admin Panel
+
+```
 URL:      /admin
 Username: admin
 Password: provided separately
+```
 
 ---
 
@@ -190,8 +201,6 @@ Password: provided separately
 | Frontend | _update after deployment_ |
 
 ---
-
-
 
 ## Known Limitations
 
