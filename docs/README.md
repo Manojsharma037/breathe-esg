@@ -116,7 +116,7 @@ DB_PORT=5432
 
 ---
 
-## Frontend Setup
+## Frontend Setup (Local Development)
 
 ```bash
 cd frontend
@@ -124,9 +124,7 @@ npm install
 npm run dev
 ```
 
-Frontend runs at: `http://localhost:5173`
-
----
+Frontend runs locally at: http://localhost:5173
 
 ## API Endpoints
 
@@ -143,6 +141,17 @@ Frontend runs at: `http://localhost:5173`
 | POST | /api/records/{id}/approve/ | Approve a record |
 | POST | /api/records/{id}/reject/ | Reject a record |
 | GET | /api/dashboard/stats/ | Dashboard summary |
+
+---
+
+## Sample Test Files
+
+Sample upload files are available inside:
+
+docs/
+├── sample_sap.csv
+├── sample_utility.csv
+└── sample_travel.json
 
 ---
 
@@ -186,9 +195,9 @@ Every action is logged in the AuditLog with timestamp.
 ## Admin Panel
 
 ```
-URL:      /admin
+URL:      https://breathe-esg-backend-zhst.onrender.com/admin/login/?next=/admin/
 Username: admin
-Password: provided separately
+Password: admin123
 ```
 
 ---
@@ -196,10 +205,12 @@ Password: provided separately
 ## Deployment
 
 | Service | URL |
-|---------|-----|
-| Backend API | _update after deployment_ |
-| Frontend | _update after deployment_ |
-
+|----------|-----|
+| Backend API | https://breathe-esg-backend-zhst.onrender.com |
+| Frontend | https://breathe-esg-platform.netlify.app/ |
+| Admin Panel | https://breathe-esg-backend-zhst.onrender.com/admin/login/?next=/admin/ |
+| Records API | https://breathe-esg-backend-zhst.onrender.com/api/records/ |
+| Dashboard Stats API | https://breathe-esg-backend-zhst.onrender.com/api/dashboard/stats/ |
 ---
 
 ## Known Limitations
