@@ -73,8 +73,6 @@ function Dashboard() {
           </div>
         </div>
       </div>
-
-      {/* Records Table — YAHAN DAALO */}
       <UploadForm />
       <RecordsTable />
 
