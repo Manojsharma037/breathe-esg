@@ -1,0 +1,63 @@
+[
+    {
+        "employee_id": "E001",
+        "employee_name": "Rahul Sharma",
+        "travel_type": "flight",
+        "origin": "DEL",
+        "destination": "BOM",
+        "travel_date": "2026-01-15",
+        "return_date": "2026-01-17",
+        "distance_km": 1400,
+        "cabin_class": "economy",
+        "cost": 8500,
+        "currency": "INR"
+    },
+    {
+        "employee_id": "E002",
+        "employee_name": "Priya Mehta",
+        "travel_type": "hotel",
+        "city": "Mumbai",
+        "check_in": "2026-01-15",
+        "check_out": "2026-01-17",
+        "nights": 2,
+        "cost": 6000,
+        "currency": "INR"
+    },
+    {
+        "employee_id": "E001",
+        "employee_name": "Rahul Sharma",
+        "travel_type": "ground",
+        "origin": "BOM Airport",
+        "destination": "BOM Office",
+        "travel_date": "2026-01-15",
+        "distance_km": 35,
+        "mode": "taxi",
+        "cost": 850,
+        "currency": "INR"
+    },
+    {
+        "employee_id": "E003",
+        "employee_name": "Amit Singh",
+        "travel_type": "flight",
+        "origin": "BLR",
+        "destination": "DEL",
+        "travel_date": "2026-02-10",
+        "return_date": "2026-02-12",
+        "distance_km": 1740,
+        "cabin_class": "business",
+        "cost": 18000,
+        "currency": "INR"
+    },
+    {
+        "employee_id": "E002",
+        "employee_name": "Priya Mehta",
+        "travel_type": "ground",
+        "origin": "DEL Office",
+        "destination": "DEL Airport",
+        "travel_date": "2026-02-10",
+        "distance_km": 28,
+        "mode": "cab",
+        "cost": 650,
+        "currency": "INR"
+    }
+]
