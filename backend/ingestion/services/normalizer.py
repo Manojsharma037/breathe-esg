@@ -23,20 +23,20 @@ def normalize_sap_record(raw_record):
     """
     data = raw_record.raw_data
 
-    # Fuel type nikalo — lowercase mein
+    # Find Fuel type — In lowercase
     fuel_type = str(data.get('FUEL_TYPE', '')).lower().strip()
     fuel_type = fuel_type.replace(' ', '_')
 
-    # Quantity nikalo
+    # Find Quantity
     try:
         quantity = Decimal(str(data.get('QUANTITY', 0)))
     except:
         quantity = Decimal('0')
 
-    # Unit nikalo
+    # Find Unit
     unit = str(data.get('UNIT', 'L')).upper()
 
-    # Emission factor dhundho
+    # find Emission factor 
     factor = EMISSION_FACTORS.get(fuel_type)
     if not factor:
         # Unknown fuel type
@@ -45,10 +45,10 @@ def normalize_sap_record(raw_record):
         raw_record.save()
         return None
 
-    # CO2 calculate karo
+    # CO2 calculate 
     co2 = quantity * factor
 
-    # NormalizedRecord banao
+    # Make NormalizedRecord
     normalized = NormalizedRecord.objects.create(
         raw_record=raw_record,
         tenant=raw_record.upload.tenant,
@@ -64,7 +64,7 @@ def normalize_sap_record(raw_record):
         review_status='pending'
     )
 
-    # RawRecord update karo
+    # RawRecord update
     raw_record.status = 'normalized'
     raw_record.save()
 
@@ -79,17 +79,17 @@ def normalize_utility_record(raw_record):
     """
     data = raw_record.raw_data
 
-    # kWh nikalo
+    # Find kWh 
     try:
         kwh = Decimal(str(data.get('KWH_CONSUMED', 0)))
     except:
         kwh = Decimal('0')
 
-    # CO2 calculate karo
+    # CO2 calculate
     factor = EMISSION_FACTORS['electricity']
     co2 = kwh * factor
 
-    # Period nikalo
+    # Find Period
     from datetime import datetime
     try:
         period_start = datetime.strptime(
@@ -102,7 +102,7 @@ def normalize_utility_record(raw_record):
         period_start = timezone.now().date()
         period_end = timezone.now().date()
 
-    # NormalizedRecord banao
+    # NormalizedRecord
     normalized = NormalizedRecord.objects.create(
         raw_record=raw_record,
         tenant=raw_record.upload.tenant,
@@ -183,7 +183,7 @@ def normalize_travel_record(raw_record):
         raw_record.save()
         return None
 
-    # NormalizedRecord banao
+    # NormalizedRecord
     normalized = NormalizedRecord.objects.create(
         raw_record=raw_record,
         tenant=raw_record.upload.tenant,
@@ -223,7 +223,7 @@ def check_suspicious(normalized_record):
         # Kam records hain — compare nahi kar sakte
         return
 
-    # Average calculate karo
+    # Average calculate
     total = sum([r.co2_equivalent for r in same_category])
     average = total / same_category.count()
 
@@ -259,7 +259,7 @@ def run_normalization(tenant):
     for raw_record in pending_records:
         source_type = raw_record.upload.source_type
 
-        # Source type ke hisaab se normalize karo
+        # normalized based on source type
         if source_type == 'sap':
             normalized = normalize_sap_record(raw_record)
         elif source_type == 'utility':
@@ -271,7 +271,7 @@ def run_normalization(tenant):
             continue
 
         if normalized:
-            # Suspicious check karo
+            # Suspicious check
             check_suspicious(normalized)
             if normalized.is_suspicious:
                 results['suspicious'] += 1
