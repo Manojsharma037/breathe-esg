@@ -63,3 +63,49 @@ main {
 .co2-section h2 {
   margin-bottom: 16px;
 }
+
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+@media (max-width: 768px) {
+
+  /* Header */
+  .app-header h1 {
+    font-size: 16px;
+    padding: 4px;
+  }
+
+  main {
+    padding: 12px;
+  }
+
+  /* Stats Grid — 2 columns on mobile */
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 10px;
+  }
+
+  .card {
+    padding: 12px;
+  }
+
+  .card h3 {
+    font-size: 12px;
+  }
+
+  .card p {
+    font-size: 20px;
+  }
+
+  /* CO2 Section */
+  .co2-section h2 {
+    font-size: 16px;
+  }
+
+}

@@ -153,3 +153,46 @@
   background: #ffebee;
   color: #e63946;
 }
+
+/* ─── MOBILE RESPONSIVE ─────────────────────────── */
+
+@media (max-width: 768px) {
+
+  .upload-form-container {
+    padding: 16px;
+  }
+
+  .upload-form-container h2 {
+    font-size: 16px;
+  }
+
+  /* Upload sections stack vertically */
+  .upload-grid {
+    grid-template-columns: 1fr !important;
+    gap: 12px;
+  }
+
+  .upload-section {
+    padding: 12px;
+  }
+
+  .upload-section h3 {
+    font-size: 13px;
+  }
+
+  .upload-btn {
+    width: 100%;
+    padding: 10px;
+  }
+
+  /* Normalize button */
+  .normalize-btn {
+    width: 100%;
+    padding: 12px;
+  }
+
+  .normalize-section h3 {
+    font-size: 14px;
+  }
+
+}

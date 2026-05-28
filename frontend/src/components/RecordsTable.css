@@ -187,3 +187,52 @@
   padding: 24px;
   color: #999;
 }
+
+/* ─── MOBILE RESPONSIVE ─────────────────────────── */
+
+@media (max-width: 768px) {
+
+  .records-container h2 {
+    font-size: 16px;
+  }
+
+  /* Filter buttons wrap karo */
+  .filter-buttons {
+    gap: 6px;
+  }
+
+  .filter-btn {
+    padding: 6px 10px;
+    font-size: 12px;
+  }
+
+  /* Table scroll horizontally */
+  .table-wrapper {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .records-table {
+    min-width: 650px;
+  }
+
+  .records-table th,
+  .records-table td {
+    padding: 8px 10px;
+    font-size: 12px;
+  }
+
+  /* Action buttons stack */
+  .action-buttons {
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .btn-approve,
+  .btn-reject {
+    padding: 4px 8px;
+    font-size: 11px;
+    width: 100%;
+  }
+
+}
